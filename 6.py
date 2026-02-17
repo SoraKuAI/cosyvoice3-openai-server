@@ -1,6 +1,6 @@
 import requests
 
-url = "http://10.189.3.18:50000/v1/audio/speech"
+url = "http://192.168.1.200:50000/v1/audio/speech"
 
 payload = {
     "model": "CosyVoice3",
@@ -9,9 +9,8 @@ payload = {
     "instructions": "",
     "response_format": "wav",
     "speed": 1.0,
-    "stream": False,  # 关键：模型非流式
+    "stream": False,
 }
-
 headers = {"Content-Type": "application/json", "Authorization": "Bearer 123"}
 
 with requests.post(url, json=payload, headers=headers, stream=True) as r:
